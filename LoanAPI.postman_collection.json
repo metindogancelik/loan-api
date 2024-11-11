@@ -1,0 +1,226 @@
+{
+	"info": {
+		"_postman_id": "29af1ed4-73d9-4638-bcad-d3aa5351a97c",
+		"name": "LoanAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4983164"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "ingUser",
+							"description": "admin user -> ingAdmin",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "user",
+							"description": "admin password-> admin",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Loan",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"Metin Doğan\",\r\n    \"surname\" : \"Çelik\",\r\n    \"amount\" : 1000,\r\n    \"interestRate\" : 0.1,\r\n    \"numberOfInstallments\": 12\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/loan/create",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"loan",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Loan 2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"Metin Doğan\",\r\n    \"surname\" : \"Çelik\",\r\n    \"amount\" : 600,\r\n    \"interestRate\" : 0.1,\r\n    \"numberOfInstallments\": 6\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/loan/create",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"loan",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Loans",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/loan/list",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"loan",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Loans with Filter",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"numberOfInstallments\" : 6,\r\n    \"isPaid\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/loan/list",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"loan",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Installments",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"loanId\" : 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/loan/list/installment",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"loan",
+						"list",
+						"installment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pay Loan",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"loanId\" : 2,\r\n    \"amount\" : 110\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/loan/pay",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"loan",
+						"pay"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/logout",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"logout"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
